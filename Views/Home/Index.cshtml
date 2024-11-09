@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Atelier2.Models.Product>
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+
+<div class="card-deck">
+    @foreach (var product in Model)
+    {
+        var photoPath = Url.Content("~/images/" + (product.Image ?? "noimage.jpg"));
+        <div class="card m-3" style="width: 18rem;">
+            <img class="card-img-top" src="@photoPath" height="200" alt="Product Image">
+            <div class="card-body">
+                <h5 class="card-title">Désignation : @product.Désignation</h5>
+                <p class="card-text"><strong>Prix :</strong> @product.Prix</p>
+                <p class="card-text"><strong>Quantité :</strong> @product.Quantite</p>
+            </div>
+            <div class="card-footer text-center">
+                <a asp-controller="Product" asp-action="Details" asp-route-id="@product.Id" class="btn btn-info btn-sm m-1">View</a>
+                <a asp-controller="Product" asp-action="Edit" asp-route-id="@product.Id" class="btn btn-success btn-sm m-1">Edit</a>
+                <a asp-controller="Product" asp-action="Delete" asp-route-id="@product.Id" class="btn btn-danger btn-sm m-1">Delete</a>
+            </div>
+        </div>
+    }
+</div>

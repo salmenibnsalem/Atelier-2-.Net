@@ -1,0 +1,18 @@
+﻿@model Atelier2.Models.Product
+
+<h2>Product Details</h2>
+
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="~/images/@Model.Image" height="200" alt="Product Image">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Désignation</h5>
+        <p class="card-text"><b>Price:</b> @Model.Prix</p>
+        <p class="card-text"><b>Quantity:</b> @Model.Quantite</p>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Edit</a>
+    <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>

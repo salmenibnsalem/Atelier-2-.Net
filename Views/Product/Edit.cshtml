@@ -1,0 +1,32 @@
+﻿@model Atelier2.Models.ViewModels.EditViewModel
+
+<h2>Edit Product</h2>
+
+<form asp-action="Edit" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Désignation"></label>
+        <input asp-for="Désignation" class="form-control" />
+        <span asp-validation-for="Désignation" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Prix"></label>
+        <input asp-for="Prix" class="form-control" />
+        <span asp-validation-for="Prix" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Quantite"></label>
+        <input asp-for="Quantite" class="form-control" />
+        <span asp-validation-for="Quantite" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ImagePath">Upload New Image</label>
+        <input asp-for="ImagePath" class="form-control" type="file" />
+        <span asp-validation-for="ImagePath" class="text-danger"></span>
+        @if (Model.ExistingImagePath != null)
+        {
+            <p>Current Image:</p>
+            <img src="~/images/@Model.ExistingImagePath" width="150" alt="Current Product Image" />
+        }
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
